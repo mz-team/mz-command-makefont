@@ -1,6 +1,6 @@
 {
   "name": "mz-command-makefont",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "description": "According to the given text converted to the corresponding font file,based on mz-fis",
   "keywords": [
     "mz",

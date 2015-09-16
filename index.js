@@ -14,27 +14,60 @@ exports.usage = '<command> [options]';
 exports.desc = 'makefont';
 exports.register = function(commander) {
 
-    var projectPath = fis.project.getProjectPath();
-    var targetPath = path.resolve(projectPath, 'test');
-    var fontSrc = path.resolve(projectPath, '../../lib/KaiGenGothicCN-Light.ttf');
-    if(!fs.existsSync(fontSrc)){
+    var argvPath = process.argv[3],
+        projectPath = fis.project.getProjectPath(),
+        fontSrc = path.resolve(projectPath, '../../lib/KaiGenGothicCN-Light.ttf'),
+        // 文案文件路径，可以是目录，也可以是单个文件
+        strTargetPath,
+        // 字体文件生成目标路径
+        fontDestPath,
+        // 文件内容字符串
+        strContent;
+    if (argvPath == '-h') {
+        var content = [
+            '',
+            'Usage: mz <command>',
+            '',
+            'Commands:',
+            '',
+            '   makefont                    Read the default text resource',
+            '   makefont [pathname]         Read the [pathname] text resource',
+            ''
+        ].join('\n');
+        console.log(content);
+        return;
+    }
+    // 根据是否传递参数来决定生成的字体文件地址
+    if (argvPath) {
+        strTargetPath = path.join(path.resolve(projectPath, 'test/page'), argvPath + '.php');
+        fontDestPath = path.join(path.resolve(projectPath, 'static'), argvPath, 'fonts');
+        var strTargetPathStatus = fs.statSync(strTargetPath);
+        if (!strTargetPathStatus.isFile() && !strTargetPathStatus.isDirectory()) {
+            console.log('自定义路径错误，请检查！！');
+            return;
+        }
+    } else {
+        strTargetPath = path.resolve(projectPath, 'test');
+        fontDestPath = path.resolve(projectPath, 'static/global/fonts');
+    }
+    if (!fs.existsSync(fontSrc)) {
         console.error('字体源文件路径错误，请在项目根目录运行!!');
         return false;
     }
-    var destPath = path.resolve(projectPath, 'static/global/fonts');
-    var strArr = readFileContent(targetPath).join('');
+
+    strContent = readFileContent(strTargetPath).join('');
     // minfy
     var fontmin = new Fontmin()
-                    .src(fontSrc)
-                    .use(Fontmin.glyph({
-                        text: strArr
-                    }))
-                    .use(Fontmin.ttf2eot())
-                    .use(Fontmin.ttf2woff())
-                    .use(Fontmin.ttf2svg())
-                    .dest(destPath);
-    fontmin.run(function(err,files){
-        if(err){
+        .src(fontSrc)
+        .use(Fontmin.glyph({
+            text: strContent
+        }))
+        .use(Fontmin.ttf2eot())
+        .use(Fontmin.ttf2woff())
+        .use(Fontmin.ttf2svg())
+        .dest(fontDestPath);
+    fontmin.run(function(err, files) {
+        if (err) {
             throw err;
         }
     });
@@ -47,12 +80,18 @@ exports.register = function(commander) {
  */
 function readFileContent(dir) {
     var contents = [];
-    travel(dir, function(fileList) {
-        fileList.forEach(function(filePath) {
-            var data = fs.readFileSync(filePath, 'utf-8');
-            contents.push(data);
+    var stats = fs.statSync(dir);
+    if (stats.isDirectory(dir)) {
+        travel(dir, function(fileList) {
+            fileList.forEach(function(filePath) {
+                var data = fs.readFileSync(filePath, 'utf-8');
+                contents.push(data);
+            });
         });
-    });
+    } else {
+        contents.push(fs.readFileSync(dir, 'utf-8'));
+    }
+
     return unique(contents.join('').split(''));
 }
 
