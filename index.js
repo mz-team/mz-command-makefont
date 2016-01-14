@@ -63,7 +63,7 @@ exports.register = function(commander) {
         var fontmin = new Fontmin()
             .src(fontSrcArr[i])
             .use(Fontmin.glyph({
-                text: strContent
+                text: strContent + '\u000a\u000b\u000c\u000d\u000e\u000f\u0000\u0001'
             }))
             .use(Fontmin.ttf2eot())
             .use(Fontmin.ttf2woff())
