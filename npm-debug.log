@@ -1,0 +1,95 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/zhouzhichuang/.nvm/versions/node/v0.12.7/bin/node',
+1 verbose cli   '/Users/zhouzhichuang/.nvm/versions/node/v0.12.7/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec { raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/zhouzhichuang/zzc/learn/frontend/nodetool/mz-command-makefont',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/zhouzhichuang/.npm/mz-command-makefont/0.1.6/package.tgz not in flight; packing
+9 verbose tar pack [ '/Users/zhouzhichuang/.npm/mz-command-makefont/0.1.6/package.tgz',
+9 verbose tar pack   '/Users/zhouzhichuang/zzc/learn/frontend/nodetool/mz-command-makefont' ]
+10 verbose tarball /Users/zhouzhichuang/.npm/mz-command-makefont/0.1.6/package.tgz
+11 verbose folder /Users/zhouzhichuang/zzc/learn/frontend/nodetool/mz-command-makefont
+12 info prepublish mz-command-makefont@0.1.6
+13 verbose addLocalTarball adding from inside cache /Users/zhouzhichuang/.npm/mz-command-makefont/0.1.6/package.tgz
+14 silly cache afterAdd mz-command-makefont@0.1.6
+15 verbose afterAdd /Users/zhouzhichuang/.npm/mz-command-makefont/0.1.6/package/package.json not in flight; writing
+16 verbose afterAdd /Users/zhouzhichuang/.npm/mz-command-makefont/0.1.6/package/package.json written
+17 silly publish { name: 'mz-command-makefont',
+17 silly publish   version: '0.1.6',
+17 silly publish   description: 'According to the given text converted to the corresponding font file,based on mz-fis',
+17 silly publish   keywords: [ 'mz', 'makefont', 'mz-fis', 'fis3' ],
+17 silly publish   author: { name: 'Heaven', email: 'lichenbuliren@gmail.com' },
+17 silly publish   repository:
+17 silly publish    { type: 'git',
+17 silly publish      url: 'git://github.com/mz-team/mz-command-makefont.git' },
+17 silly publish   dependencies: { fontmin: '0.9.2' },
+17 silly publish   main: 'index',
+17 silly publish   readme: '\n# mz-command-makefont\n\n  According to the given text converted to the corresponding font file\n\n## License \n\n(The MIT License)\n\nCopyright (c) 2015 Heaven &lt;lichenbuliren@gmail.com&gt;\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\'Software\'), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \'AS IS\', WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.',
+17 silly publish   readmeFilename: 'Readme.md',
+17 silly publish   bugs: { url: 'https://github.com/mz-team/mz-command-makefont/issues' },
+17 silly publish   homepage: 'https://github.com/mz-team/mz-command-makefont#readme',
+17 silly publish   _id: 'mz-command-makefont@0.1.6',
+17 silly publish   scripts: {},
+17 silly publish   _shasum: 'c15b8ddab97a07997060332928480203d1ead4d6',
+17 silly publish   _from: '.',
+17 silly publish   gitHead: '54cce97950180641692b3f37f9a5d2d738c6b8c1' }
+18 verbose getPublishConfig undefined
+19 silly mapToRegistry name mz-command-makefont
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/mz-command-makefont
+23 verbose publish registryBase https://registry.npmjs.org/
+24 silly publish uploading /Users/zhouzhichuang/.npm/mz-command-makefont/0.1.6/package.tgz
+25 verbose request uri https://registry.npmjs.org/mz-command-makefont
+26 verbose request sending authorization for write operation
+27 info attempt registry request try #1 at 17:07:01
+28 verbose request using bearer token for auth
+29 verbose request id a92831e72e288e26
+30 http request PUT https://registry.npmjs.org/mz-command-makefont
+31 http 403 https://registry.npmjs.org/mz-command-makefont
+32 verbose headers { 'content-type': 'application/json',
+32 verbose headers   'cache-control': 'max-age=300',
+32 verbose headers   'content-length': '113',
+32 verbose headers   'accept-ranges': 'bytes',
+32 verbose headers   date: 'Mon, 18 Jul 2016 09:07:04 GMT',
+32 verbose headers   via: '1.1 varnish',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'x-served-by': 'cache-lcy1128-LCY',
+32 verbose headers   'x-cache': 'MISS',
+32 verbose headers   'x-cache-hits': '0',
+32 verbose headers   'x-timer': 'S1468832823.156579,VS0,VE1019',
+32 verbose headers   vary: 'Accept-Encoding' }
+33 verbose request invalidating /Users/zhouzhichuang/.npm/registry.npmjs.org/mz-command-makefont on PUT
+34 error publish Failed PUT 403
+35 verbose stack Error: you do not have permission to publish "mz-command-makefont". Are you logged in as the correct user? : mz-command-makefont
+35 verbose stack     at CachingRegistryClient.<anonymous> (/Users/zhouzhichuang/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:247:14)
+35 verbose stack     at Request._callback (/Users/zhouzhichuang/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:170:14)
+35 verbose stack     at Request.self.callback (/Users/zhouzhichuang/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/request/request.js:354:22)
+35 verbose stack     at Request.emit (events.js:110:17)
+35 verbose stack     at Request.<anonymous> (/Users/zhouzhichuang/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/request/request.js:1207:14)
+35 verbose stack     at Request.emit (events.js:129:20)
+35 verbose stack     at IncomingMessage.<anonymous> (/Users/zhouzhichuang/.nvm/versions/node/v0.12.7/lib/node_modules/npm/node_modules/request/request.js:1153:12)
+35 verbose stack     at IncomingMessage.emit (events.js:129:20)
+35 verbose stack     at _stream_readable.js:908:16
+35 verbose stack     at process._tickCallback (node.js:355:11)
+36 verbose statusCode 403
+37 verbose pkgid mz-command-makefont
+38 verbose cwd /Users/zhouzhichuang/zzc/learn/frontend/nodetool/mz-command-makefont
+39 error Darwin 14.5.0
+40 error argv "/Users/zhouzhichuang/.nvm/versions/node/v0.12.7/bin/node" "/Users/zhouzhichuang/.nvm/versions/node/v0.12.7/bin/npm" "publish"
+41 error node v0.12.7
+42 error npm  v2.11.3
+43 error code E403
+44 error you do not have permission to publish "mz-command-makefont". Are you logged in as the correct user? : mz-command-makefont
+45 error If you need help, you may report this error at:
+45 error     <https://github.com/npm/npm/issues>
+46 verbose exit [ 1, true ]
