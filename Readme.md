@@ -1,5 +1,5 @@
 
-# mz-command-makefont 基于mz-fis框架的饿字体压缩工具
+# mz-command-makefont 基于mz-fis框架的字体压缩工具
 
 ### 特性
 
