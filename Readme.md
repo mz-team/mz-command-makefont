@@ -7,6 +7,7 @@
 
 ### Demo
 
+#### 默认用法
 ``` bash
 $ cd i18n-m/source/cn
 $ mz makefont
@@ -17,6 +18,14 @@ $ mz makefont
 `i18n-m/source/cn/static/global/fonts`下面存放生成压缩过后的字体文件
 
 
+
+#### 指定部分页面
+
+``` bash
+$ cd i18n-m/source/cn
+$ mz makefont products/m3e2/weixin, products/m3e2/summary
+```
+通过以上命令，会抽取对应的 tpl 和 php 文案，字体文件默认以第一项的静态路径作为目标路径
 ### 使用字体
 
 ``` css
