@@ -17,7 +17,11 @@ $ mz makefont
 
 `i18n-m/source/cn/static/global/fonts`下面存放生成压缩过后的字体文件
 
-
+#### 默认全站字体生成
+``` bash
+$ cd i18n-m/source/cn
+$ mz makefont
+```
 
 #### 指定部分页面
 
